@@ -13,12 +13,12 @@ module Commenter
         # * +as+ - Optional. Defines the polymorphic refeference. Default: :commentable.
         # * +dependent+ - Optional. Defines relationship dependency. Default: :destroy.
         # * +order+ - Optional. Defines sorting order. Default: :created_at
-        def is_commentable options = {}
+        def is_commentable scope = nil, options = {}
           # Default Options
-          options.reverse_merge! as: :commentable, dependent: :destroy, order: :created_at
-          
+          options.reverse_merge! as: :commentable, dependent: :destroy
+          scope ||= -> { order(:created_at) }
           # Associations
-          has_many :comments, options
+          has_many :comments, scope, options
         end
       end
     end
