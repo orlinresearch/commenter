@@ -15,7 +15,6 @@ Gem::Specification.new do |s|
   s.post_install_message	= "(W): www.redalchemist.com. (T): @ralchemist."
 
   s.rdoc_options << "CHANGELOG.rdoc"
-  s.required_ruby_version = "~> 1.9.0"
   s.add_dependency "rails", ">= 3.0.0"
   s.add_development_dependency "rake"
   s.add_development_dependency "sqlite3"
